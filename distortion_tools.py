@@ -28,12 +28,18 @@ def x_y_to_xy(x_coord, y_coord): #join two seperate 1D lists of x and y into sin
     
 #TRANSFORM FROM TRUE (UNDISTORTED) TO OBSERVED (DISTORTED) REFERENCE FRAME
 def undistorted_to_distorted(undist_x, undist_y): #input true stellar positions
+    """ this function transforms from the true (undisorted) stellar positions to the observed (distorted) positions
+        input two seperate 'x' , 'y' 1D arrays or lists of the true stellar positions, 
+        the output will give you the observed stellar positions in your image """
     dist_x, dist_y = forward_2d_poly_vec(undist_x, undist_y, dist_x_prime, dist_y_prime)
     return dist_x, dist_y
 
 #TRANSFORM FROM OBSERVED (DISTORTED) REFERENCE FRAME TO TRUE (UNDISTORTED) 
 def distorted_to_undistorted(dist_x, dist_y): #input observed stellar positions
-    
+    """ this function transforms from the observed (disorted) stellar positions to the true (undistorted) positions
+        input two seperate 'x' , 'y' 1D arrays or lists of the observed stellar positions, 
+        the output will give you the true stellar positions in your image's reference frame """
+  
     def pack_p(p): #turn a raveled 1D array into a 2d array of points
         len_distorted_data = int(len(p)/2)
         pts = n.array(p[0 : 2*len_distorted_data].reshape(len_distorted_data, 2))
