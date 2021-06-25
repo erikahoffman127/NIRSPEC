@@ -1,3 +1,6 @@
+import numpy as n
+import matplotlib.pyplot as plt
+
 x, y = n.mgrid[range(256)[::11], range(256)[::11]]
 x, y = n.ravel(x), n.ravel(y)
 
