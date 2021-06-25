@@ -1,5 +1,7 @@
 import numpy as n
 import matplotlib.pyplot as plt
+from distortion_tools import undistorted_to_distorted
+from distortion_tools import distorted_to_undistorted
 
 x, y = n.mgrid[range(256)[::11], range(256)[::11]]
 x, y = n.ravel(x), n.ravel(y)
